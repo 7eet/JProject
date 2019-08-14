@@ -50,7 +50,7 @@ public class Main{
 			strategy = new ReportFileStrategy();
 			strategy.execute(list);
 		}else{
-			System.out.format("To perform operations on duplicate files you have to give parameter after path.%nOperations are as follows:%n1. -d\t-> to delete files%2. -m\t-> to move files%n3. -csv\t-> to create report in \".csv\" form.%n4. -f\t-> to create report in normal text file.%n");	
+			System.out.format("To perform operations on duplicate files you have to give parameter after path.%nOperations are as follows:%n1. d\t-> to delete files%n2. m\t-> to move files%n3. csv\t-> to create report in \".csv\" form.%n4. f\t-> to create report in normal text file.%n");	
 		}
 		
 	
