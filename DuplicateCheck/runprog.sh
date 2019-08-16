@@ -13,5 +13,5 @@ echo "com.dupcheck.list compiled."
 javac --module-path target/ -d target/com.dupcheck/ src/com.dupcheck/module-info.java src/com.dupcheck/com/dupcheck/Main.java
 echo "main file compiled."
 
-#echo "Running Program."
-#java --module-path target -m com.dupcheck/com.dupcheck.Main
+echo "Running Program."
+java --module-path target -m com.dupcheck/com.dupcheck.Main
