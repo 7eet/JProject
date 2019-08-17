@@ -3,6 +3,7 @@
 package com.dupcheck.strategy;
 import java.util.List;
 import java.io.File;
+
 public interface FeatureStrategy{
 	
 	void execute(List<File> list);

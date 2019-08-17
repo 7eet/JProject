@@ -12,6 +12,7 @@ public class DeleteFileStrategy implements FeatureStrategy{
 					try{
 						Files.deleteIfExists(e.toPath());
 					}catch(IOException exception){
+						//exception.printStackTrace();
 						System.out.println("Error Occured when deleting files.");
 					}
 				});

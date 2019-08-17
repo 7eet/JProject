@@ -23,8 +23,9 @@ public class MoveFileStrategy implements FeatureStrategy{
 					Files.move(e.toPath(),movePath.resolve(e.toPath().getFileName()),StandardCopyOption.REPLACE_EXISTING);
 					
 					}catch(IOException io){
+						//io.printStackTrace();
 						System.out.println("Error occured when moving files.");
-						io.printStackTrace();
+						
 					}
 				});
 			}
