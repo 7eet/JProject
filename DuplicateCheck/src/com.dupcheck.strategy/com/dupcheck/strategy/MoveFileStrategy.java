@@ -5,14 +5,17 @@ import java.util.List;
 import java.io.*;
 import java.nio.file.*;
 public class MoveFileStrategy implements FeatureStrategy{
+
+	private Path movePath = null;
+	
+	public MoveFileStrategy(Path path){
+		movePath = path;
+	}
 	
 		
 	@Override public void execute(List<File> list){
-		
-		System.out.println("\nSpecify Path: ");
-		Scanner scanner = new Scanner(System.in);
-		String path = scanner.next();	 	
-		Path movePath = Paths.get(path);
+	
+	
 		if(Files.exists(movePath) && Files.isDirectory(movePath)){
 			
 	//		Path dirPath = Paths.get(movePath.toString()+"/DuplicateFiles");
@@ -26,14 +29,12 @@ public class MoveFileStrategy implements FeatureStrategy{
 						//io.printStackTrace();
 						System.out.println("Error occured when moving files.");
 						
-					}
-				});
-			}
+						}
+					});
+				}
 		
-		else{
-			System.out.println("Invalid Path!!");
-		}
-				
-	
+			else{
+				System.out.println("Invalid Path!!");
+			}
 	}
 }
