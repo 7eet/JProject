@@ -15,11 +15,10 @@ public class MoveFileStrategy implements FeatureStrategy{
 		
 	@Override public void execute(List<File> list){
 	
+	if(movePath != null){
 	
 		if(Files.exists(movePath) && Files.isDirectory(movePath)){
-			
-	//		Path dirPath = Paths.get(movePath.toString()+"/DuplicateFiles");
-	//		Path target = Files.createDirectory(dirPath);
+
 			list.stream()
 				.forEach( e -> {
 				if(Files.exists(e.toPath())){
@@ -29,16 +28,17 @@ public class MoveFileStrategy implements FeatureStrategy{
 					}catch(IOException io){
 						//io.printStackTrace();
 						System.out.println("Error occured when moving files.");
-						
 						}
 					}else{
 						System.out.println(e.toPath()+" not exists.");
 					}
 					});
-				}
-		
+				}		
 			else{
 				System.out.println("Invalid Path!!");
 			}
+		}else{
+			System.out.println("Given path is null.");
+		}
 	}
 }
