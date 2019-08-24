@@ -22,6 +22,7 @@ public class MoveFileStrategy implements FeatureStrategy{
 	//		Path target = Files.createDirectory(dirPath);
 			list.stream()
 				.forEach( e -> {
+				if(Files.exists(e.toPath())){
 					try{
 					Files.move(e.toPath(),movePath.resolve(e.toPath().getFileName()),StandardCopyOption.REPLACE_EXISTING);
 					
@@ -30,6 +31,9 @@ public class MoveFileStrategy implements FeatureStrategy{
 						System.out.println("Error occured when moving files.");
 						
 						}
+					}else{
+						System.out.println(e.toPath()+" not exists.");
+					}
 					});
 				}
 		
