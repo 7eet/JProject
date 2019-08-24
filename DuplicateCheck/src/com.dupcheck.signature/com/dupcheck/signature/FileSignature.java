@@ -1,7 +1,7 @@
 // this calculate the signatue of file and returns it.
 package com.dupcheck.signature;
-import java.security.MessageDigest;
-import java.io.File;
+import java.security.*;
+import java.io.*;
 import java.nio.file.*;
 
 public class FileSignature{
@@ -10,19 +10,30 @@ public class FileSignature{
 	
 	private String result = null; 
 	
-	public String calculateMessageDigest(File file){
+	public FileSignature(File file){	
+		
+		if(file != null){
 	
-		try{
-			md = MessageDigest.getInstance("SHA-256");
-			byte[] bytes = Files.readAllBytes(file.toPath());
-			result = new  String(md.digest(bytes)); 
+			try{
+				md = MessageDigest.getInstance("SHA-256");
+				byte[] bytes = Files.readAllBytes(file.toPath());
+				result = new  String(md.digest(bytes)); 
 			
 
-		}catch(Exception e){
-			System.out.println("Error");
-			e.printStackTrace();
-		}
+			}catch(NoSuchAlgorithmException noAlgo){
+					noAlgo.printStackTrace();
+			}catch(IOException io){
+				System.out.println("Error occured in Signature.");
+				//io.printStackTrace();
+			}
+		}else{
+			System.out.println("Null Argument is passed.");
+		}	
 		
+	}
+	
+	public String getSignature(){
 		return result;
 	}
+	
 }
