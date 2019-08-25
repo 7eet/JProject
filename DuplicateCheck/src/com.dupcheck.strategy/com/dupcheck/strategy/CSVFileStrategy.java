@@ -8,48 +8,61 @@ import java.nio.file.attribute.*;
 
 public class CSVFileStrategy implements FeatureStrategy {
 	
-	BufferedWriter writer = null;
+	private BufferedWriter writer = null;
 	
-	PosixFileAttributes attr = null;
+	private PosixFileAttributes attribute = null;
 
 	@Override public void execute(List<File> list){
 	
+		if(list != null){
+			
+			try{	
+			
+				if(Files.exists(Paths.get("DuplicateFiles.csv"))){
+				
+					writer = new BufferedWriter( new FileWriter( new File("DuplicateFiles.csv"),true));
+					createReport(writer,list);
+					writer.write("\n");
+				}else{
+					writer = new BufferedWriter( new FileWriter( new File("DuplicateFiles.csv")));
+					writer.write("ReportDay,ReportTime,Path,Owner,Group,Size (bytes)\n");
+					writer.flush();
+					createReport(writer,list);
+					writer.write("\n");
+				}
+			}catch(IOException exception){
+				System.out.println("Error occured in creating csv file.");
+			}finally{
+				try{
+				writer.close();
+				}catch(IOException ioex){
+					System.out.println("Error occured in closing object.");
+				}
+			}
+		}else{
+			System.out.println("Null argument is passed.");
+		}
+	}
 	
-		try{
-		writer = new BufferedWriter( new FileWriter( new File("DuplicateFiles.csv"),true));
-		writer.write("ReportDate: "+LocalDate.now().toString()+",ReportTime: "+LocalTime.now().toString()+"\n\n");
-		writer.write("Path,Owner,Group,Size\n");	
+	
+	private void createReport(BufferedWriter bufferedWriter , List<File> list) throws IOException{
+		
+		writer.write(LocalDate.now().toString()+","+LocalTime.now().toString()+"\n");
 		writer.flush();
-
+		
 		list.forEach(
 			e -> {
-				try{
+				try{				
+					attribute = Files.readAttributes(e.toPath(), PosixFileAttributes.class);
 				
-				attr = Files.readAttributes(e.toPath(), PosixFileAttributes.class);
-				
-				writer.write(e.toPath().toAbsolutePath().toString()+","+attr.owner().getName()+","+attr.group().getName()+","+e.length()+" bytes");
-				writer.newLine();
-				writer.flush(); 	
+					writer.write(",,"+e.toPath().toAbsolutePath().toString()+","+attribute.owner().getName()+","+attribute.group().getName()+","+e.length());
+					writer.newLine();
+					writer.flush(); 	
 				}catch(IOException ioex){
 					System.out.println("Error occured while writing file.");
 					//ioex.printStackTrace();
 				}
 			}
 		);
-		writer.write("\n\n");
-		writer.flush();
-		
-		}catch(IOException exception){
-			System.out.println("Error occured in creating csv file.");
-		}finally{
-			try{
-			writer.close();
-			}catch(IOException ioex){
-				System.out.println("Error occured in closing object.");
-			}
-		}
-		
-	
 	}
-
 }
