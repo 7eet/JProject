@@ -10,8 +10,6 @@ public class ReportFileStrategy implements FeatureStrategy {
 	
 	@Override public void execute(List<File> list){
 	
-		if(list != null ){
-	
 			try{
 		
 				if(Files.exists(Paths.get("DuplicateFiles.txt"))){
@@ -34,24 +32,25 @@ public class ReportFileStrategy implements FeatureStrategy {
 						System.out.println("Error occured in closing object.");
 					}
 			}
-		}else{
-			System.out.println("Null argument is passed.");
-		}
 	}
 	
 	
 	private void createReport(BufferedWriter bufferedWriter, List<File> list) throws IOException{
 			list.forEach(
 					e -> {
-							try{			
-								bufferedWriter.write(e.getName()+"\t "+e.length());
-								bufferedWriter.newLine();
-								bufferedWriter.flush(); 	
-							}catch(IOException ioex){
-								System.out.println("Error occured while writing file.");
-								//ioex.printStackTrace();
-							}		
-						}
+							if(Files.exists(e.toPath())){
+									try{			
+										bufferedWriter.write(e.getName()+"\t "+e.length());
+										bufferedWriter.newLine();
+										bufferedWriter.flush(); 	
+									}catch(IOException ioex){
+										System.out.println("Error occured while writing file.");
+										//ioex.printStackTrace();
+									}
+								}else{
+									System.out.println("Files doesn't exist.");
+								}
+							}	
 					);
 					
 			writer.write("\n");

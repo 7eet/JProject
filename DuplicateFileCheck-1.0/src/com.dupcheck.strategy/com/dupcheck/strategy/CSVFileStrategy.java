@@ -12,10 +12,7 @@ public class CSVFileStrategy implements FeatureStrategy {
 	
 	private PosixFileAttributes attribute = null;
 
-	@Override public void execute(List<File> list){
-	
-		if(list != null){
-			
+	@Override public void execute(List<File> list){			
 			try{	
 			
 				if(Files.exists(Paths.get("DuplicateFiles.csv"))){
@@ -39,9 +36,6 @@ public class CSVFileStrategy implements FeatureStrategy {
 					System.out.println("Error occured in closing object.");
 				}
 			}
-		}else{
-			System.out.println("Null argument is passed.");
-		}
 	}
 	
 	

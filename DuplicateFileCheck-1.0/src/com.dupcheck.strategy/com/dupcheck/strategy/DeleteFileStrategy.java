@@ -8,8 +8,7 @@ import java.nio.file.Path;
 public class DeleteFileStrategy implements FeatureStrategy{
 	
 		@Override public void execute(List<File> list){
-			if(list != null){
-				list.forEach(e -> {
+			list.forEach(e -> {
 					try{
 						Files.deleteIfExists(e.toPath());
 					}catch(IOException exception){
@@ -17,9 +16,5 @@ public class DeleteFileStrategy implements FeatureStrategy{
 						System.out.println("Error Occured when deleting files.");
 					}
 				});
-			}else{
-				System.out.println("Null argument is passed.");
-			}
 		}
-	
 }
