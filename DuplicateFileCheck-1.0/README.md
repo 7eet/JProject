@@ -1,4 +1,4 @@
-###To run this application type following command:
+### To run this application type following command:
 	
 	***java --module-path target -m com.dupcheck/com.dupcheck.Main arg1 arg2(optional)***
 
