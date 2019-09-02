@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReportFileStrategy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FileOperations</a> &gt; <a href="index.source.html" class="el_package">com.dupcheck.strategy</a> &gt; <span class="el_source">ReportFileStrategy.java</span></div><h1>ReportFileStrategy.java</h1><pre class="source lang-java linenums">// this is file create a normal text file , which contains list of duplicate files.
+package com.dupcheck.strategy;
+import java.util.*;
+import java.io.*;
+import java.nio.file.*;
+import java.nio.file.attribute.*;
+<span class="fc" id="L7">public class ReportFileStrategy implements FeatureStrategy {</span>
+	
+<span class="fc" id="L9">	private BufferedWriter writer = null;	</span>
+	
+	@Override public void execute(List&lt;File&gt; list){
+	
+			try{
+		
+<span class="fc bfc" id="L15" title="All 2 branches covered.">				if(Files.exists(Paths.get(&quot;DuplicateFiles.txt&quot;))){</span>
+<span class="fc" id="L16">					writer = new BufferedWriter( new FileWriter( new File(&quot;DuplicateFiles.txt&quot;),true));</span>
+<span class="fc" id="L17">					createReport(writer,list);</span>
+				}else{
+<span class="fc" id="L19">						writer = new BufferedWriter( new FileWriter( new File(&quot;DuplicateFiles.txt&quot;)));</span>
+<span class="fc" id="L20">						writer.write(&quot;FileName\tSize (bytes)\n&quot;);</span>
+<span class="fc" id="L21">						writer.write(&quot;\n&quot;);	</span>
+<span class="fc" id="L22">						writer.flush();</span>
+<span class="nc" id="L23">						createReport(writer,list);</span>
+				}
+<span class="nc" id="L25">			}catch(IOException exception){</span>
+					//excecption.printStackTrace();
+<span class="nc" id="L27">					System.out.println(&quot;Error occured in creating file.&quot;);</span>
+			}finally{
+					try{
+<span class="fc" id="L30">						writer.close();</span>
+<span class="nc" id="L31">					}catch(IOException ioex){</span>
+<span class="nc" id="L32">						System.out.println(&quot;Error occured in closing object.&quot;);</span>
+<span class="fc" id="L33">					}</span>
+			}
+<span class="fc" id="L35">	}</span>
+	
+	
+	private void createReport(BufferedWriter bufferedWriter, List&lt;File&gt; list) throws IOException{
+<span class="fc" id="L39">			list.forEach(</span>
+					e -&gt; {
+<span class="fc bfc" id="L41" title="All 4 branches covered.">							if(Files.exists(e.toPath()) &amp;&amp; !Files.isDirectory(e.toPath())){</span>
+									try{			
+<span class="fc" id="L43">										bufferedWriter.write(e.getName()+&quot;\t &quot;+e.length());</span>
+<span class="fc" id="L44">										bufferedWriter.newLine();</span>
+<span class="fc" id="L45">										bufferedWriter.flush(); 	</span>
+<span class="nc" id="L46">									}catch(IOException ioex){</span>
+<span class="nc" id="L47">										System.out.println(&quot;Error occured while writing file.&quot;);</span>
+										//ioex.printStackTrace();
+<span class="pc" id="L49">									}</span>
+								}else{
+<span class="fc" id="L51">									System.out.println(&quot;Files doesn't exist.&quot;);</span>
+								}
+<span class="fc" id="L53">							}	</span>
+					);
+					
+<span class="fc" id="L56">			writer.write(&quot;\n&quot;);</span>
+					
+<span class="fc" id="L58">		}	</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
