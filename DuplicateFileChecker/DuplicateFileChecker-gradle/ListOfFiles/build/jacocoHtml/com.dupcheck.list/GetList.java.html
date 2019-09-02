@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ListOfFiles</a> &gt; <a href="index.source.html" class="el_package">com.dupcheck.list</a> &gt; <span class="el_source">GetList.java</span></div><h1>GetList.java</h1><pre class="source lang-java linenums">// this returns the list of duplicate files.
+
+package com.dupcheck.list;
+import java.util.*;
+import java.io.*;
+import java.nio.file.*;
+import com.dupcheck.signature.FileSignature;
+<span class="nc" id="L8">public class GetList{</span>
+
+
+	private class FileInfo{
+<span class="nc" id="L12">		String messageDigest = null;</span>
+<span class="nc" id="L13">		File file = null;</span>
+		
+<span class="nc" id="L15">		FileInfo(String messageDigest, File file){</span>
+<span class="nc" id="L16">			this.messageDigest = messageDigest;</span>
+<span class="nc" id="L17">			this.file = file;</span>
+<span class="nc" id="L18">		}</span>
+				
+		public int hashCode(){
+<span class="nc" id="L21">			return messageDigest.hashCode() * 9;</span>
+		}
+		
+		public boolean equals(Object object){
+<span class="nc bnc" id="L25" title="All 2 branches missed.">			if(! (object instanceof FileInfo))</span>
+<span class="nc" id="L26">				return false;</span>
+<span class="nc" id="L27">			FileInfo fileInfo = (FileInfo)object;</span>
+<span class="nc" id="L28">			return this.messageDigest.equals(fileInfo.messageDigest);</span>
+		}
+		
+	}
+	
+	// set contains fileInfo object.
+<span class="nc" id="L34">	private HashSet&lt;FileInfo&gt; set = new HashSet&lt;&gt;();</span>
+	
+	//field listOfDuplicates is used to store duplicate files. 	
+<span class="nc" id="L37">	private List&lt;File&gt; duplicateFiles = new ArrayList&lt;&gt;();</span>
+	
+<span class="nc" id="L39">	private FileSignature signature = null;</span>
+	
+	
+	public List&lt;File&gt; listOfDuplicateFiles(Path p){
+	
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		if(p != null){</span>
+<span class="nc" id="L45">			traversePath(new File(p.toString()));</span>
+<span class="nc" id="L46">			return duplicateFiles;		</span>
+		}else{
+<span class="nc" id="L48">			System.out.println(&quot;Path is null&quot;);</span>
+<span class="nc" id="L49">			return null;</span>
+		}
+	
+	}
+	
+	private void traversePath(File file){
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		if(file.exists()){</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">			if(! file.isDirectory()){</span>
+			
+<span class="nc" id="L58">				signature = new FileSignature(file);</span>
+			
+<span class="nc" id="L60">				FileInfo fileInfo = new FileInfo(signature.getSignature(),file);</span>
+						
+<span class="nc bnc" id="L62" title="All 2 branches missed.">				if(set.isEmpty()){</span>
+<span class="nc" id="L63">					set.add(fileInfo);</span>
+				}else{
+<span class="nc bnc" id="L65" title="All 2 branches missed.">					if(set.contains(fileInfo)){</span>
+<span class="nc" id="L66">						duplicateFiles.add(file);</span>
+					}else{
+<span class="nc" id="L68">						set.add(fileInfo);</span>
+					}
+				}
+<span class="nc" id="L71">			}else{</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">				if(file.length() &gt; 0){</span>
+<span class="nc" id="L73">					File[] files = file.listFiles();</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">					for(File filesInArray : files){</span>
+<span class="nc" id="L75">						traversePath(filesInArray);</span>
+					}
+<span class="nc" id="L77">				}</span>
+			}
+		}else{
+<span class="nc" id="L80">			System.out.println(&quot;File doesnot exist.&quot;);</span>
+		}
+		
+			
+				
+<span class="nc" id="L85">	}</span>
+}
+/*
+	
+	if(p != null){
+	
+		if(Files.exists(p)){
+		
+		File[] files = (p.toFile()).listFiles();
+		
+		for(var i=0 ; i &lt; files.length ; i++){
+		
+			if( ! files[i].isFile()) continue;
+		
+			signature = new FileSignature(files[i]);
+			
+			FileInfo fileInfo = new FileInfo(signature.getSignature(),files[i]);
+						
+			if(set.isEmpty()){
+				set.add(fileInfo);
+			}else{
+				if(set.contains(fileInfo)){
+					duplicateFiles.add(files[i]);
+				}else{
+					set.add(fileInfo);
+				}	
+			}		
+		}
+		return duplicateFiles;			
+	}else{
+		System.out.println(&quot;Path does not exists.&quot;);
+		return null;
+	}
+	}else{
+		System.out.println(&quot;Path is null.&quot;);
+		return null;
+	}
+	}		
+}*/
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
