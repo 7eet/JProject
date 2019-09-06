@@ -11,15 +11,15 @@ import java.util.List;
 
 public class MoveFileTest{
 	
-	private static String desktop = System.getProperty("user.home")+"/Desktop";
+	private static File desktop  = new File(System.getProperty("user.home")+"/Desktop");
 
 	private static List<File> listWithZeroSize = null;
 	private static List<File> listWithFourFiles = null;
 	private static List<File> listWithThreeDir = null;
-	private static MoveFileStrategy mvFile = null;
+	private MoveFileStrategy mvFile = null;
 
 	@BeforeEach
-	public static void initConstructorWithValidPath(){
+	public void initConstructorWithValidPath(){
 			mvFile = new MoveFileStrategy(Paths.get(desktop+"/T"));
 	}
 	
@@ -32,9 +32,9 @@ public class MoveFileTest{
 	
 	@BeforeAll
 	public static void addElementsToDirList(){
-		listWithThreeDir.add(new File(desktop+"/T/empt"));                      // empty dir
-		listWithThreeDir.add(new File(desktop+"/T"));		// non empty dir
-		listWithThreeDir.add(new File("/dum/dir"));			// non exist dir
+		listWithThreeDir.add(new File(desktop,"/T/empt"));                      // empty dir
+		listWithThreeDir.add(new File(desktop,"/T"));		// non empty dir
+		listWithThreeDir.add(new File(desktop,"/dum/dir"));			// non exist dir
 	}
 
 	@BeforeAll
@@ -43,10 +43,10 @@ public class MoveFileTest{
 		// 2 and 4 files are nonexist file.
 		// rest two are exist.
 		
-		listWithFourFiles.add(new File(desktop+"/T/Sample.java"));
-		listWithFourFiles.add(new File("nofile.txt"));
-		listWithFourFiles.add(new File(desktop+"/T/otherFile.txt"));
-		listWithFourFiles.add(new File("/f/y.txt"));
+		listWithFourFiles.add(new File(desktop,"/T/Sample.java"));
+		listWithFourFiles.add(new File(desktop,"nofile.txt"));
+		listWithFourFiles.add(new File(desktop,"/T/otherFile.txt"));
+		listWithFourFiles.add(new File(desktop,"/f/y.txt"));
 	}
 	
 	@Test

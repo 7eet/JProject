@@ -9,33 +9,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReportFileTest{
-	private static ReportFileStrategy reportFile = null;
+	private ReportFileStrategy reportFile = null;
 	private static List<File> sizeZero = null;
 	private static List<File> listOfFiles = null;
 	private static List<File> listOfDir = null;
-	private static String desktop = System.getProperty("user.home")+"/Desktop/";
+	private static File desktop  = new File(System.getProperty("user.home")+"/Desktop");
 	
 	@BeforeAll
 	public static void initListWithFiles(){
 		sizeZero = new ArrayList<>();
 		listOfFiles = new ArrayList<>();
-		listOfFiles.add(new File(desktop+"/T/Tp.java"));     // file exist
-		listOfFiles.add(new File("/j/t2.txt"));                                       // file doesn't exist
-		listOfFiles.add(new File(desktop+"/T/Tp.1java"));					//file exist
-		listOfFiles.add(new File("/dir/t.txt"));					// file doesn't exist
+		listOfFiles.add(new File(desktop,"/T/Tp.java"));     // file exist
+		listOfFiles.add(new File(desktop,"/j/t2.txt"));                                       // file doesn't exist
+		listOfFiles.add(new File(desktop,"/T/Tp.1java"));					//file exist
+		listOfFiles.add(new File(desktop,"/dir/t.txt"));					// file doesn't exist
 	}
 	
 	@BeforeAll
 	public static void initListWithDir(){
 		listOfDir = new ArrayList<>();
-		listOfDir.add(new File(desktop+"/testDup/"));     // file exist
-		listOfDir.add(new File("/j/"));                                       // file doesn't exist
-		listOfDir.add(new File(desktop+"/T"));					//file exist
-		listOfDir.add(new File("/dir"));					// file doesn't exist
+		listOfDir.add(new File(desktop,"/testDup/"));     // file exist
+		listOfDir.add(new File(desktop,"/j/"));                                       // file doesn't exist
+		listOfDir.add(new File(desktop,"/T"));					//file exist
+		listOfDir.add(new File(desktop,"/dir"));					// file doesn't exist
 	}
 	
 	@BeforeEach
-	public static void initObject(){
+	public void initObject(){
 		reportFile = new ReportFileStrategy();
 	}
 	

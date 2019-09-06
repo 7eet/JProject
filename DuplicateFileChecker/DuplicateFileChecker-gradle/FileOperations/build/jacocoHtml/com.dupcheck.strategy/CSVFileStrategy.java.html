@@ -5,7 +5,7 @@ import java.time.*;
 import java.io.*;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
-
+import java.nio.charset.Charset;
 <span class="fc" id="L9">public class CSVFileStrategy implements FeatureStrategy {</span>
 	
 <span class="fc" id="L11">	private BufferedWriter writer = null;</span>
@@ -17,11 +17,11 @@ import java.nio.file.attribute.*;
 			
 <span class="fc bfc" id="L18" title="All 2 branches covered.">				if(Files.exists(Paths.get(&quot;DuplicateFiles.csv&quot;))){</span>
 				
-<span class="fc" id="L20">					writer = new BufferedWriter( new FileWriter( new File(&quot;DuplicateFiles.csv&quot;),true));</span>
+<span class="fc" id="L20">					writer = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File(&quot;DuplicateFiles.csv&quot;),true),Charset.forName(&quot;UTF-8&quot;))); </span>
 <span class="fc" id="L21">					createReport(writer,list);</span>
 <span class="fc" id="L22">					writer.write(&quot;\n&quot;);</span>
 				}else{
-<span class="fc" id="L24">					writer = new BufferedWriter( new FileWriter( new File(&quot;DuplicateFiles.csv&quot;)));</span>
+<span class="fc" id="L24">					writer = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File(&quot;DuplicateFiles.csv&quot;)),Charset.forName(&quot;UTF-8&quot;)));</span>
 <span class="fc" id="L25">					writer.write(&quot;ReportDay,ReportTime,Path,Owner,Group,Size (bytes)\n&quot;);</span>
 <span class="fc" id="L26">					writer.flush();</span>
 <span class="nc" id="L27">					createReport(writer,list);</span>

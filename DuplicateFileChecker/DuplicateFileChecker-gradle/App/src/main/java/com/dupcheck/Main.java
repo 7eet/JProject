@@ -11,13 +11,19 @@ import com.dupcheck.strategy.*;
 import java.nio.file.*;
 import java.io.File;
 import java.nio.charset.Charset;
+import org.apache.logging.log4j.*;
 
 public class Main{
 
 	private static GetList  getList = new GetList();
 	private static List<File>  duplicateFiles = new ArrayList<>();
 	private static FeatureStrategy strategy = null;
+	private static final Logger logger = LogManager.getLogger(Main.class);
 	public static void main(String[] arg){
+		
+		logger.debug("Started");
+	
+		long startTime = System.currentTimeMillis();
 
 		if(arg[0] != null){
 
@@ -26,6 +32,7 @@ public class Main{
 				duplicateFiles = getList.listOfDuplicateFiles(path);
 			}else{
 				System.out.format("Please specify correct directory.%n");
+				logger.info("Does not specified correct directory.%n");
 			}
 
 			if(arg.length >1 ){
@@ -48,6 +55,7 @@ public class Main{
 							movePath = Paths.get(inputPath);
 						}catch(IOException io){
 							System.out.println("Error in reading input.");
+							logger.error("Error in reading input\n"+io);
 							//io.printStackTrace();
 						}
 						strategy = new MoveFileStrategy(movePath);
@@ -76,10 +84,12 @@ public class Main{
 				}
 			}else{
 
-				if(duplicateFiles.size() == 0)
+				if(duplicateFiles.size() == 0){
 					System.out.println("No Duplicate Files.");
-				else{
+					logger.info("No Duplicate Files.");
+				}else{
 					System.out.format("Report for Duplicate Files%n");
+					logger.info("Reported Duplicate Files");
 					duplicateFiles.forEach(System.out::println);
 				}
 			}
@@ -88,15 +98,14 @@ public class Main{
 			System.out.format("Please run this program with two arguments." +
 					"%nOne for path and another for operation.%n");
 		}
+		
+		long endTime = System.currentTimeMillis();
+		//System.out.println("Time Taken by application is: "+(endTime-startTime)+" ms for files "+getList.count());
+		
+		logger.info("Time Taken by application is: "+(endTime-startTime)+" ms");
+		logger.debug("Stoped");
 	}
 
-	/*private static void retrieveList(String argument){
-			Path p = Paths.get(argument);
-			if(p.toFile().exists()){
-				duplicateFiles = getList.listOfDuplicateFiles(p);
-			}else{
-				System.out.format("Please specify correct directory.%n");
-			}
-	}*/
+	
 }
 

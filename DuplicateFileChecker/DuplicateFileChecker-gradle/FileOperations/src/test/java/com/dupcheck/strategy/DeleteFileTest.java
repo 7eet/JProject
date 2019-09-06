@@ -10,12 +10,12 @@ import java.util.List;
 
 public class DeleteFileTest{
 	
-	private static FeatureStrategy del = null;
-	private static List<File> list =  null;
-	private static String desktop  = System.getProperty("user.home")+"/Desktop";
+	private FeatureStrategy del = null;
+	private List<File> list =  null;
+	private static File desktop  = new File(System.getProperty("user.home")+"/Desktop");
 	
 	@BeforeEach
-	public static void createReference(){
+	public void createReference(){
 		del = new DeleteFileStrategy();
 		list = new ArrayList<>();
 	}
@@ -38,10 +38,10 @@ public class DeleteFileTest{
 	@Test
 	public void forListSizeEqualsToFour(){
 		assertDoesNotThrow(()-> {
-			list.add(new File(desktop+"/T/Sample.java"));
-			list.add(new File("/dummy/file.txt"));          // non exist file
-			list.add(new File(desktop+"/T/run.sh"));
-			list.add(new File("/dir/dir1/ij.jpg"));	//// non exist file
+			list.add(new File(desktop,"/T/Sample.java"));
+			list.add(new File(desktop,"/file.txt"));          // non exist file
+			list.add(new File(desktop,"/T/run.sh"));
+			list.add(new File(desktop,"/ij.jpg"));	//// non exist file
 			del.execute(list);
 		});
 	}
@@ -49,10 +49,10 @@ public class DeleteFileTest{
 	@Test
 	public void listWithDirectories(){
 			assertDoesNotThrow(()-> {
-			list.add(new File(desktop+"/T/"));
-			list.add(new File("/dummy/file.txt"));          // non exist file
-			list.add(new File(desktop+"/T/testin/"));
-			list.add(new File("/dir/dir1/ij.jpg"));	//// non exist file
+			list.add(new File(desktop,"/T/"));
+			list.add(new File(desktop,"/file.txt"));          // non exist file
+			list.add(new File(desktop,"/T/testin/"));
+			list.add(new File(desktop,"/ij.jpg"));	//// non exist file
 			del.execute(list);
 		});	
 	}

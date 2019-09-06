@@ -23,22 +23,21 @@ repositories {
 }
 
 dependencies {
-    // This dependency is found on compile classpath of this component and consumers.
-    implementation 'com.google.guava:guava:27.0.1-jre'
-
     	
 	implementation project(':FileOperations')
 	implementation project(':ListOfFiles')
 	run {
-   standardInput = System.in
+   		standardInput = System.in
 	}
 }
+
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
-  }
+	reports {
+		xml.enabled = false
+		html.enabled = true
+	}
+}
+
 ext.moduleName = 'com.dupcheck'
 
 mainClassName = 'com.dupcheck.Main'

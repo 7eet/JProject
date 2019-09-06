@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.strategy.MoveFileTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-08-26T11:34:10" hostname="raijeet-Vostro-15-3568" time="0.074">
+<testsuite name="com.dupcheck.strategy.MoveFileTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-09-06T10:40:27" hostname="raijeet-Vostro-15-3568" time="0.059">
   <properties/>
   <testcase name="testWithListOfFiles()" classname="com.dupcheck.strategy.MoveFileTest" time="0.008"/>
   <testcase name="passingFileToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.004"/>
   <testcase name="testForSizeZero()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
-  <testcase name="testWithListOfDir()" classname="com.dupcheck.strategy.MoveFileTest" time="0.049"/>
-  <testcase name="passingNullToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
+  <testcase name="testWithListOfDir()" classname="com.dupcheck.strategy.MoveFileTest" time="0.032"/>
+  <testcase name="passingNullToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.004"/>
   <system-out><![CDATA[/home/dapps/Desktop/T/Sample.java not exists.
-nofile.txt not exists.
+/home/dapps/Desktop/nofile.txt not exists.
 /home/dapps/Desktop/T/otherFile.txt not exists.
-/f/y.txt not exists.
+/home/dapps/Desktop/f/y.txt not exists.
 Invalid Path!!
+/home/dapps/Desktop/T/empt not exists.
 Error occured when moving files.
-/dum/dir not exists.
+/home/dapps/Desktop/dum/dir not exists.
 Given path is null.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

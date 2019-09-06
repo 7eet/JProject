@@ -79,7 +79,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\App.jar;%APP_HOME%\lib\FileOperations.jar;%APP_HOME%\lib\ListOfFiles.jar;%APP_HOME%\lib\Signature.jar;%APP_HOME%\lib\guava-27.0.1-jre.jar;%APP_HOME%\lib\failureaccess-1.0.1.jar;%APP_HOME%\lib\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;%APP_HOME%\lib\jsr305-3.0.2.jar;%APP_HOME%\lib\checker-qual-2.5.2.jar;%APP_HOME%\lib\error_prone_annotations-2.2.0.jar;%APP_HOME%\lib\j2objc-annotations-1.1.jar;%APP_HOME%\lib\animal-sniffer-annotations-1.17.jar;%APP_HOME%\lib\commons-math3-3.6.1.jar
+set CLASSPATH=%APP_HOME%\lib\App.jar;%APP_HOME%\lib\FileOperations.jar;%APP_HOME%\lib\ListOfFiles.jar;%APP_HOME%\lib\Signature.jar;%APP_HOME%\lib\log4j-core-2.12.1.jar;%APP_HOME%\lib\log4j-api-2.12.1.jar;%APP_HOME%\lib\guava-27.0.1-jre.jar;%APP_HOME%\lib\failureaccess-1.0.1.jar;%APP_HOME%\lib\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;%APP_HOME%\lib\jsr305-3.0.2.jar;%APP_HOME%\lib\checker-qual-2.5.2.jar;%APP_HOME%\lib\error_prone_annotations-2.2.0.jar;%APP_HOME%\lib\j2objc-annotations-1.1.jar;%APP_HOME%\lib\animal-sniffer-annotations-1.17.jar
 
 @rem Execute App
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %APP_OPTS%  -classpath "%CLASSPATH%" com.dupcheck.Main %CMD_LINE_ARGS%

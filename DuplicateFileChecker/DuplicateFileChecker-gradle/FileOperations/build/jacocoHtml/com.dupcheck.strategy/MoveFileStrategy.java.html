@@ -23,12 +23,12 @@ public class MoveFileStrategy implements FeatureStrategy{
 <span class="fc" id="L23">				.forEach( e -&gt; {</span>
 <span class="fc bfc" id="L24" title="All 2 branches covered.">				if(Files.exists(e.toPath())){</span>
 					try{
-<span class="fc" id="L26">					Files.move(e.toPath(),movePath.resolve(e.toPath().getFileName()),StandardCopyOption.REPLACE_EXISTING);</span>
+<span class="nc" id="L26">					Files.move(e.toPath(),movePath.resolve(e.toPath().getFileName()),StandardCopyOption.REPLACE_EXISTING);</span>
 					
 <span class="fc" id="L28">					}catch(IOException io){</span>
 						//io.printStackTrace();
 <span class="fc" id="L30">						System.out.println(&quot;Error occured when moving files.&quot;);</span>
-<span class="fc" id="L31">						}</span>
+<span class="pc" id="L31">						}</span>
 					}else{
 <span class="fc" id="L33">						System.out.println(e.toPath()+&quot; not exists.&quot;);</span>
 					}

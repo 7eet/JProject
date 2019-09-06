@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.signature.FileSignatureTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-08-26T11:34:15" hostname="raijeet-Vostro-15-3568" time="0.093">
+<testsuite name="com.dupcheck.signature.FileSignatureTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-06T10:40:44" hostname="raijeet-Vostro-15-3568" time="0.139">
   <properties/>
-  <testcase name="testForNullArgument()" classname="com.dupcheck.signature.FileSignatureTest" time="0.065"/>
-  <testcase name="testForValidDirectory()" classname="com.dupcheck.signature.FileSignatureTest" time="0.003"/>
-  <testcase name="testForExistFile()" classname="com.dupcheck.signature.FileSignatureTest" time="0.018"/>
+  <testcase name="testForNullArgument()" classname="com.dupcheck.signature.FileSignatureTest" time="0.057"/>
+  <testcase name="testForValidDirectory()" classname="com.dupcheck.signature.FileSignatureTest" time="0.037"/>
+  <testcase name="testForExistFile()" classname="com.dupcheck.signature.FileSignatureTest" time="0.038"/>
   <testcase name="testForNonExistFile()" classname="com.dupcheck.signature.FileSignatureTest" time="0.002"/>
   <system-out><![CDATA[Null Argument is passed.
 Error occured in Signature.

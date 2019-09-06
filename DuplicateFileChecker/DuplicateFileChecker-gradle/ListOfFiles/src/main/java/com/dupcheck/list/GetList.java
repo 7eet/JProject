@@ -7,7 +7,6 @@ import java.nio.file.*;
 import com.dupcheck.signature.FileSignature;
 public class GetList{
 
-
 	private class FileInfo{
 		String messageDigest = null;
 		File file = null;
@@ -31,18 +30,23 @@ public class GetList{
 	}
 	
 	// set contains fileInfo object.
-	private HashSet<FileInfo> set = new HashSet<>();
+	private HashSet<FileInfo> setOfObject = new HashSet<>();
+	
+	private Set<String> setOfSignature = new HashSet<>();
 	
 	//field listOfDuplicates is used to store duplicate files. 	
 	private List<File> duplicateFiles = new ArrayList<>();
 	
 	private FileSignature signature = null;
 	
+	private static long countFiles = 0;
+	
 	
 	public List<File> listOfDuplicateFiles(Path p){
 	
 		if(p != null){
 			traversePath(new File(p.toString()));
+			System.out.println("Total files: "+countFiles);
 			return duplicateFiles;		
 		}else{
 			System.out.println("Path is null");
@@ -54,18 +58,20 @@ public class GetList{
 	private void traversePath(File file){
 		if(file.exists()){
 			if(! file.isDirectory()){
+				++countFiles;
 			
 				signature = new FileSignature(file);
 			
 				FileInfo fileInfo = new FileInfo(signature.getSignature(),file);
 						
-				if(set.isEmpty()){
-					set.add(fileInfo);
+				if(setOfObject.isEmpty()){
+					setOfObject.add(fileInfo);
 				}else{
-					if(set.contains(fileInfo)){
-						duplicateFiles.add(file);
+					if(setOfObject.contains(fileInfo)){
+						if(setOfSignature.add(signature.getSignature())) duplicateFiles.add(file);
+						
 					}else{
-						set.add(fileInfo);
+						setOfObject.add(fileInfo);
 					}
 				}
 			}else{
@@ -78,46 +84,7 @@ public class GetList{
 			}
 		}else{
 			System.out.println("File doesnot exist.");
-		}
-		
-			
-				
+		}			
 	}
 }
-/*
-	
-	if(p != null){
-	
-		if(Files.exists(p)){
-		
-		File[] files = (p.toFile()).listFiles();
-		
-		for(var i=0 ; i < files.length ; i++){
-		
-			if( ! files[i].isFile()) continue;
-		
-			signature = new FileSignature(files[i]);
-			
-			FileInfo fileInfo = new FileInfo(signature.getSignature(),files[i]);
-						
-			if(set.isEmpty()){
-				set.add(fileInfo);
-			}else{
-				if(set.contains(fileInfo)){
-					duplicateFiles.add(files[i]);
-				}else{
-					set.add(fileInfo);
-				}	
-			}		
-		}
-		return duplicateFiles;			
-	}else{
-		System.out.println("Path does not exists.");
-		return null;
-	}
-	}else{
-		System.out.println("Path is null.");
-		return null;
-	}
-	}		
-}*/
+
