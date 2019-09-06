@@ -8,11 +8,11 @@ import java.nio.file.*;
 
 public class FileSignatureTest{
 
-	private static File dummyFile = new File("/dum/Dummy.txt");
+	private static File dummyFile = new File("Dummy.txt");
 	
-	private static final String desktopPath = System.getProperty("user.home")+"/Desktop";
-	private static File file =  new File(desktopPath+"/T/Tp.java");
-	private static File dir =  new File(desktopPath+"/T");
+	private static File desktopPath = new File(System.getProperty("user.home")+"/Desktop");
+	private static File file =  new File(desktopPath,"/T/Tp.java");
+	private static File dir =  new File(desktopPath,"/T");
 
 	@Test 
 	public void testForNullArgument(){

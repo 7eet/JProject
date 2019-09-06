@@ -5,7 +5,7 @@ import java.io.*;
 import java.nio.file.*;
 
 public class FileSignature{
-
+	
 	private MessageDigest md = null;
 	
 	private String result = null; 
@@ -17,7 +17,7 @@ public class FileSignature{
 			try{
 				md = MessageDigest.getInstance("SHA-256");
 				byte[] bytes = Files.readAllBytes(file.toPath());
-				result = new  String(md.digest(bytes)); 
+				result = new  String(md.digest(bytes),"UTF-8"); 
 			
 
 			}catch(NoSuchAlgorithmException noAlgo){
