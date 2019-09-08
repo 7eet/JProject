@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.strategy.MoveFileTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-09-06T10:40:27" hostname="raijeet-Vostro-15-3568" time="0.059">
+<testsuite name="com.dupcheck.strategy.MoveFileTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-09-08T11:09:46" hostname="raijeet-Vostro-15-3568" time="0.026">
   <properties/>
-  <testcase name="testWithListOfFiles()" classname="com.dupcheck.strategy.MoveFileTest" time="0.008"/>
-  <testcase name="passingFileToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.004"/>
-  <testcase name="testForSizeZero()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
-  <testcase name="testWithListOfDir()" classname="com.dupcheck.strategy.MoveFileTest" time="0.032"/>
-  <testcase name="passingNullToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.004"/>
-  <system-out><![CDATA[/home/dapps/Desktop/T/Sample.java not exists.
-/home/dapps/Desktop/nofile.txt not exists.
-/home/dapps/Desktop/T/otherFile.txt not exists.
-/home/dapps/Desktop/f/y.txt not exists.
+  <testcase name="testWithListOfFiles()" classname="com.dupcheck.strategy.MoveFileTest" time="0.006"/>
+  <testcase name="passingFileToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
+  <testcase name="testForSizeZero()" classname="com.dupcheck.strategy.MoveFileTest" time="0.002"/>
+  <testcase name="testWithListOfDir()" classname="com.dupcheck.strategy.MoveFileTest" time="0.005"/>
+  <testcase name="passingNullToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
+  <system-out><![CDATA[/home/raijeet/Desktop/T/Sample.java not exists.
+/home/raijeet/Desktop/nofile.txt not exists.
+/home/raijeet/Desktop/T/otherFile.txt not exists.
+/home/raijeet/Desktop/f/y.txt not exists.
 Invalid Path!!
-/home/dapps/Desktop/T/empt not exists.
 Error occured when moving files.
-/home/dapps/Desktop/dum/dir not exists.
+/home/raijeet/Desktop/dum/dir not exists.
 Given path is null.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

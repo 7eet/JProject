@@ -6,6 +6,7 @@ import java.nio.file.*;
 import com.dupcheck.signature.FileSignature;
 public class GetList{
 
+		// this inner class store file's signature and file path
 	private class FileInfo{
 		String messageDigest = null;
 		File file = null;
@@ -20,10 +21,16 @@ public class GetList{
 		}
 		
 		public boolean equals(Object object){
-			if(! (object instanceof FileInfo))
+			if( object != null ) {
+				if(! (object instanceof FileInfo))
+					return false;
+				FileInfo fileInfo = (FileInfo)object;
+				return this.messageDigest.equals(fileInfo.messageDigest);
+			}else{
+				//System.out.println("null object.");
 				return false;
-			FileInfo fileInfo = (FileInfo)object;
-			return this.messageDigest.equals(fileInfo.messageDigest);
+			}
+			
 		}
 		
 	}
@@ -45,7 +52,7 @@ public class GetList{
 	
 		if(p != null){
 			traversePath(new File(p.toString()));
-			System.out.println("Total files: "+countFiles);
+			System.out.println("Total searched files "+countFiles);
 			return duplicateFiles;		
 		}else{
 			System.out.println("Path is null");
@@ -67,8 +74,7 @@ public class GetList{
 					setOfObject.add(fileInfo);
 				}else{
 					if(setOfObject.contains(fileInfo)){
-						if(setOfSignature.add(signature.getSignature())) duplicateFiles.add(file);
-						
+							duplicateFiles.add(file);
 					}else{
 						setOfObject.add(fileInfo);
 					}

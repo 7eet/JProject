@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.strategy.DeleteFileTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-06T10:40:27" hostname="raijeet-Vostro-15-3568" time="0.019">
+<testsuite name="com.dupcheck.strategy.DeleteFileTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-08T11:09:46" hostname="raijeet-Vostro-15-3568" time="0.016">
   <properties/>
-  <testcase name="testForNull()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.006"/>
-  <testcase name="testForEmptyList()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.002"/>
-  <testcase name="forListSizeEqualsToFour()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.003"/>
-  <testcase name="listWithDirectories()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.004"/>
+  <testcase name="testForNull()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.005"/>
+  <testcase name="testForEmptyList()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.001"/>
+  <testcase name="forListSizeEqualsToFour()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.001"/>
+  <testcase name="listWithDirectories()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.003"/>
   <system-out><![CDATA[Error Occured when deleting files.
+Error Occured when deleting files.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -41,7 +41,7 @@ public class ReportFileStrategy implements FeatureStrategy {
 					e -> {
 							if(Files.exists(e.toPath()) && !Files.isDirectory(e.toPath())){
 									try{			
-										bufferedWriter.write(e.getName()+"\t "+e.length());
+										bufferedWriter.write(e.toPath()+"\t "+e.length());
 										bufferedWriter.newLine();
 										bufferedWriter.flush(); 	
 									}catch(IOException ioex){

@@ -18,7 +18,6 @@ public class MoveFileStrategy implements FeatureStrategy{
 	if(movePath != null){
 	
 		if(Files.exists(movePath) && Files.isDirectory(movePath)){
-
 			list.stream()
 				.forEach( e -> {
 				if(Files.exists(e.toPath())){

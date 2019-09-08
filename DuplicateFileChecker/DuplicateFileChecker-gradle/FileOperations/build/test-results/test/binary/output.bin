@@ -5,16 +5,15 @@
 Files doesn't exist.
 Files doesn't exist.
 Files doesn't exist.
-./home/dapps/Desktop/T/Sample.java not exists.
-+/home/dapps/Desktop/nofile.txt not exists.
-0/home/dapps/Desktop/T/otherFile.txt not exists.
-(/home/dapps/Desktop/f/y.txt not exists.
+0/home/raijeet/Desktop/T/Sample.java not exists.
+-/home/raijeet/Desktop/nofile.txt not exists.
+2/home/raijeet/Desktop/T/otherFile.txt not exists.
+*/home/raijeet/Desktop/f/y.txt not exists.
 Invalid Path!!
-
-'/home/dapps/Desktop/T/empt not exists.
 
 !Error occured when moving files.
 
-(/home/dapps/Desktop/dum/dir not exists.
+*/home/raijeet/Desktop/dum/dir not exists.
 Given path is null.
+#Error Occured when deleting files.
 #Error Occured when deleting files.
