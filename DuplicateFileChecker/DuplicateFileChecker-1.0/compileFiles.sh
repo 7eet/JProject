@@ -1,16 +1,19 @@
+pkgDir=com/dupcheck
 
+strategyVar=com.dupcheck.strategy
 echo "Started."
-javac -d target/com.dupcheck.stategy/ src/com.dupcheck.strategy/module-info.java src/com.dupcheck.strategy/com/dupcheck/strategy/FeatureStrategy.java
-javac -d target/com.dupcheck.stategy/ src/com.dupcheck.strategy/module-info.java src/com.dupcheck.strategy/com/dupcheck/strategy/MoveFileStrategy.java
-javac -d target/com.dupcheck.stategy/ src/com.dupcheck.strategy/module-info.java src/com.dupcheck.strategy/com/dupcheck/strategy/DeleteFileStrategy.java
-javac -d target/com.dupcheck.stategy/ src/com.dupcheck.strategy/module-info.java src/com.dupcheck.strategy/com/dupcheck/strategy/CSVFileStrategy.java
-javac -d target/com.dupcheck.stategy/ src/com.dupcheck.strategy/module-info.java src/com.dupcheck.strategy/com/dupcheck/strategy/ReportFileStrategy.java
+javac -d target/$strategyVar/ src/$strategyVar/module-info.java src/$strategyVar/$pkgDir/strategy/*.java
 echo "interface compiled."
-javac -d target/com.dupcheck.signature/ src/com.dupcheck.signature/module-info.java src/com.dupcheck.signature/com/dupcheck/signature/FileSignature.java
+
+sigVar=com.dupcheck.signature
+javac -d target/$sigVar/ src/$sigVar/module-info.java src/$sigVar/$pkgDir/signature/FileSignature.java
 echo "com.dupcheck.signature compiled."
-javac --module-path target/ -d target/com.dupcheck.list/ src/com.dupcheck.list/module-info.java src/com.dupcheck.list/com/dupcheck/list/GetList.java
+
+listVar=com.dupcheck.list
+javac --module-path target/ -d target/$listVar/ src/$listVar/module-info.java src/$listVar/$pkgDir/list/GetList.java
 echo "com.dupcheck.list compiled."
-javac --module-path target/ -d target/com.dupcheck/ src/com.dupcheck/module-info.java src/com.dupcheck/com/dupcheck/Main.java
+
+javac --module-path target/ -d target/com.dupcheck/ src/com.dupcheck/module-info.java src/com.dupcheck/$pkgDir/Main.java
 echo "main file compiled."
 
 #echo "Running Program."
