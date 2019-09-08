@@ -1,12 +1,12 @@
 ### To run this application type following command:
 
 **First compile this application and then run it.**
-**To compile run** - *./compileFiles.sh*
-**Then run** - *./run.sh*
+**To compile run** - `./compileFiles.sh`
+**Then run** - `./run.sh`
 	
 **or**
 	
-*java --module-path target -m com.dupcheck/com.dupcheck.Main arg1 arg2(optional)*
+`java --module-path target -m com.dupcheck/com.dupcheck.Main arg1 arg2(optional)`
 
 
 **arg1 (specify-directory) =  you have to specify directory in which you want to check duplicate files.** 

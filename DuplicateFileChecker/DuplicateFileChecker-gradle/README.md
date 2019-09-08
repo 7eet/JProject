@@ -1,6 +1,6 @@
 ### How to run application and test coverage report
 
-**Execute**  _gradle build_ 
+**Execute**  `gradle build` 
 
 **Then** `./gradlew run --args=specifyDir operation`
 
