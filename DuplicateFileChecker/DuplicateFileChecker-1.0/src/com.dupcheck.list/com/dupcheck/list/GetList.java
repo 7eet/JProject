@@ -52,7 +52,7 @@ public class GetList{
 	
 		if(p != null){
 			traversePath(new File(p.toString()));
-			System.out.println("Total files: "+countFiles);
+			System.out.println("Total searched "+countFiles+" files" );
 			return duplicateFiles;		
 		}else{
 			System.out.println("Path is null");
