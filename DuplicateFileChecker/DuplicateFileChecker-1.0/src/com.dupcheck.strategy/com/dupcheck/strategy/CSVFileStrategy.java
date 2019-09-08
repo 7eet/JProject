@@ -5,7 +5,7 @@ import java.time.*;
 import java.io.*;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
-
+import java.nio.charset.Charset;
 public class CSVFileStrategy implements FeatureStrategy {
 	
 	private BufferedWriter writer = null;
@@ -17,11 +17,11 @@ public class CSVFileStrategy implements FeatureStrategy {
 			
 				if(Files.exists(Paths.get("DuplicateFiles.csv"))){
 				
-					writer = new BufferedWriter( new FileWriter( new File("DuplicateFiles.csv"),true));
+					writer = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File("DuplicateFiles.csv"),true),Charset.forName("UTF-8"))); 
 					createReport(writer,list);
 					writer.write("\n");
 				}else{
-					writer = new BufferedWriter( new FileWriter( new File("DuplicateFiles.csv")));
+					writer = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File("DuplicateFiles.csv")),Charset.forName("UTF-8")));
 					writer.write("ReportDay,ReportTime,Path,Owner,Group,Size (bytes)\n");
 					writer.flush();
 					createReport(writer,list);
@@ -46,6 +46,8 @@ public class CSVFileStrategy implements FeatureStrategy {
 		
 		list.forEach(
 			e -> {
+			
+			if(Files.exists(e.toPath()) && !Files.isDirectory(e.toPath())){
 				try{				
 					attribute = Files.readAttributes(e.toPath(), PosixFileAttributes.class);
 				
@@ -56,6 +58,7 @@ public class CSVFileStrategy implements FeatureStrategy {
 					System.out.println("Error occured while writing file.");
 					//ioex.printStackTrace();
 				}
+			}
 			}
 		);
 	}

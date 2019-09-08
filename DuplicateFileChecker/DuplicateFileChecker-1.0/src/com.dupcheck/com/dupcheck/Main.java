@@ -1,5 +1,3 @@
-// main application file
-
 
 package com.dupcheck;
 import java.io.BufferedReader;
@@ -10,15 +8,17 @@ import com.dupcheck.list.*;
 import com.dupcheck.strategy.*;
 import java.nio.file.*;
 import java.io.File;
+import java.nio.charset.Charset;
 
 public class Main{
 
 	private static GetList  getList = new GetList();
 	private static List<File>  duplicateFiles = new ArrayList<>();
 	private static FeatureStrategy strategy = null;
+	
 	public static void main(String[] arg){
 
-		if(arg[0] != null){
+		if(arg.length >= 1){
 
 			Path path = Paths.get(arg[0]);
 			if(path.toFile().exists()){
@@ -30,18 +30,16 @@ public class Main{
 			if(arg.length >1 ){
 				String secondArgument = arg[1];
 
-
 				switch(secondArgument){
 
 					case "d" :
-
 						strategy = new DeleteFileStrategy();
 						strategy.execute(duplicateFiles);
 						break;
 
 					case "m" :
 						Path movePath = null;
-						try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+						try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in,Charset.forName("UTF-8")))){
 							System.out.println("Specify path where to move files: ");
 							String inputPath = reader.readLine();
 							movePath = Paths.get(inputPath);
@@ -59,7 +57,6 @@ public class Main{
 						break;
 
 					case "f" :
-
 						strategy = new ReportFileStrategy();
 						strategy.execute(duplicateFiles);
 						break;
@@ -75,27 +72,20 @@ public class Main{
 				}
 			}else{
 
-				if(duplicateFiles.size() == 0)
+				if(duplicateFiles.size() == 0){
 					System.out.println("No Duplicate Files.");
-				else{
+				}else{
 					System.out.format("Report for Duplicate Files%n");
-					duplicateFiles.forEach(System.out::println);
+					duplicateFiles.forEach(files -> {
+						System.out.println("\t"+files);
+					});
 				}
 			}
 
 		}else{
-			System.out.format("Please run this program with two arguments." +
-					"%nOne for path and another for operation.%n");
+			System.out.format("\tPlease run this program with two arguments." +
+					"%n\tOne for path and another for operation.%n");
 		}
-	}
-
-	/*private static void retrieveList(String argument){
-			Path p = Paths.get(argument);
-			if(p.toFile().exists()){
-				duplicateFiles = getList.listOfDuplicateFiles(p);
-			}else{
-				System.out.format("Please specify correct directory.%n");
-			}
-	}*/
+	}	
 }
 

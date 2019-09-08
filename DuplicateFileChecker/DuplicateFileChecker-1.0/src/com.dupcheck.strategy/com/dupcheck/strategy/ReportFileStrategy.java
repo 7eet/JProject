@@ -4,6 +4,7 @@ import java.util.*;
 import java.io.*;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
+import java.nio.charset.Charset;
 public class ReportFileStrategy implements FeatureStrategy {
 	
 	private BufferedWriter writer = null;	
@@ -13,10 +14,10 @@ public class ReportFileStrategy implements FeatureStrategy {
 			try{
 		
 				if(Files.exists(Paths.get("DuplicateFiles.txt"))){
-					writer = new BufferedWriter( new FileWriter( new File("DuplicateFiles.txt"),true));
+					writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File("DuplicateFiles.txt"),true),Charset.forName("UTF-8")));
 					createReport(writer,list);
 				}else{
-						writer = new BufferedWriter( new FileWriter( new File("DuplicateFiles.txt")));
+						writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File("DuplicateFiles.txt")),Charset.forName("UTF-8")));
 						writer.write("FileName\tSize (bytes)\n");
 						writer.write("\n");	
 						writer.flush();
@@ -38,7 +39,7 @@ public class ReportFileStrategy implements FeatureStrategy {
 	private void createReport(BufferedWriter bufferedWriter, List<File> list) throws IOException{
 			list.forEach(
 					e -> {
-							if(Files.exists(e.toPath())){
+							if(Files.exists(e.toPath()) && !Files.isDirectory(e.toPath())){
 									try{			
 										bufferedWriter.write(e.getName()+"\t "+e.length());
 										bufferedWriter.newLine();
