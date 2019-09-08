@@ -1,4 +1,3 @@
-// this returns the list of duplicate files.
 
 package com.dupcheck.list;
 import java.util.*;
