@@ -1,6 +1,6 @@
 ####This application requires greater than JDK 9 version
 
-### To run this application type following command:
+###To run this application type following command:
 
 	**First compile this application and then run it.**
 	**To compile run**-*./compileFiles.sh*
