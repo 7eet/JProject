@@ -1,7 +1,3 @@
-
-
-echo "DuplicateFileChecker"
-
 echo "Enter Full Path of Directory: "
 read dirName
 echo "Below are the operations to perform on duplicate files:"
@@ -13,5 +9,6 @@ echo " m -> move duplicate files to another directory
 echo "Enter Operations to perform:(m,d,f,csv)  "
 read performOperation
 
-java --module-path target -m com.dupcheck/com.dupcheck.Main $dirName $performOperation
+echo "Application started"
+java --module-path lib -m com.dupcheck/com.dupcheck.Main $dirName $performOperation
 
