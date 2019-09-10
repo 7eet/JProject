@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.strategy.ReportFileTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-08T11:09:45" hostname="raijeet-Vostro-15-3568" time="0.097">
+<testsuite name="com.dupcheck.strategy.ReportFileTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-10T14:18:24" hostname="raijeet-Vostro-15-3568" time="0.09">
   <properties/>
-  <testcase name="testForNull()" classname="com.dupcheck.strategy.ReportFileTest" time="0.036"/>
-  <testcase name="listWithFiles()" classname="com.dupcheck.strategy.ReportFileTest" time="0.045"/>
-  <testcase name="listWithDir()" classname="com.dupcheck.strategy.ReportFileTest" time="0.009"/>
+  <testcase name="testForNull()" classname="com.dupcheck.strategy.ReportFileTest" time="0.037"/>
+  <testcase name="listWithFiles()" classname="com.dupcheck.strategy.ReportFileTest" time="0.039"/>
+  <testcase name="listWithDir()" classname="com.dupcheck.strategy.ReportFileTest" time="0.005"/>
   <testcase name="forListSizeZero()" classname="com.dupcheck.strategy.ReportFileTest" time="0.003"/>
   <system-out><![CDATA[Files doesn't exist.
 Files doesn't exist.

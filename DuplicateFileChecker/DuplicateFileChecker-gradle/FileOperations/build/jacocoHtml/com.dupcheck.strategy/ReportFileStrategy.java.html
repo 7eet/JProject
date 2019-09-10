@@ -41,7 +41,7 @@ import java.nio.charset.Charset;
 					e -&gt; {
 <span class="fc bfc" id="L42" title="All 4 branches covered.">							if(Files.exists(e.toPath()) &amp;&amp; !Files.isDirectory(e.toPath())){</span>
 									try{			
-<span class="fc" id="L44">										bufferedWriter.write(e.getName()+&quot;\t &quot;+e.length());</span>
+<span class="fc" id="L44">										bufferedWriter.write(e.toPath()+&quot;\t &quot;+e.length());</span>
 <span class="fc" id="L45">										bufferedWriter.newLine();</span>
 <span class="fc" id="L46">										bufferedWriter.flush(); 	</span>
 <span class="nc" id="L47">									}catch(IOException ioex){</span>

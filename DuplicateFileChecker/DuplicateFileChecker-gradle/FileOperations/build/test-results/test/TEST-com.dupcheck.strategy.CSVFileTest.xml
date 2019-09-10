@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.strategy.CSVFileTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-08T11:09:46" hostname="raijeet-Vostro-15-3568" time="0.085">
+<testsuite name="com.dupcheck.strategy.CSVFileTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-10T14:18:25" hostname="raijeet-Vostro-15-3568" time="0.09">
   <properties/>
-  <testcase name="testForNull()" classname="com.dupcheck.strategy.CSVFileTest" time="0.04"/>
-  <testcase name="testWithDirs()" classname="com.dupcheck.strategy.CSVFileTest" time="0.004"/>
-  <testcase name="testWithFiles()" classname="com.dupcheck.strategy.CSVFileTest" time="0.033"/>
-  <testcase name="forListSizeZero()" classname="com.dupcheck.strategy.CSVFileTest" time="0.003"/>
+  <testcase name="testForNull()" classname="com.dupcheck.strategy.CSVFileTest" time="0.043"/>
+  <testcase name="testWithDirs()" classname="com.dupcheck.strategy.CSVFileTest" time="0.003"/>
+  <testcase name="testWithFiles()" classname="com.dupcheck.strategy.CSVFileTest" time="0.037"/>
+  <testcase name="forListSizeZero()" classname="com.dupcheck.strategy.CSVFileTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

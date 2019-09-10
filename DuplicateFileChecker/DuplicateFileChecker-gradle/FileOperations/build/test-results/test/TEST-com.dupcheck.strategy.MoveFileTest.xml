@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.strategy.MoveFileTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-09-08T11:09:46" hostname="raijeet-Vostro-15-3568" time="0.026">
+<testsuite name="com.dupcheck.strategy.MoveFileTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-09-10T14:18:25" hostname="raijeet-Vostro-15-3568" time="0.078">
   <properties/>
-  <testcase name="testWithListOfFiles()" classname="com.dupcheck.strategy.MoveFileTest" time="0.006"/>
-  <testcase name="passingFileToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
-  <testcase name="testForSizeZero()" classname="com.dupcheck.strategy.MoveFileTest" time="0.002"/>
-  <testcase name="testWithListOfDir()" classname="com.dupcheck.strategy.MoveFileTest" time="0.005"/>
-  <testcase name="passingNullToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
+  <testcase name="testWithListOfFiles()" classname="com.dupcheck.strategy.MoveFileTest" time="0.007"/>
+  <testcase name="passingFileToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.005"/>
+  <testcase name="testForSizeZero()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
+  <testcase name="testWithListOfDir()" classname="com.dupcheck.strategy.MoveFileTest" time="0.052"/>
+  <testcase name="passingNullToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.004"/>
   <system-out><![CDATA[/home/raijeet/Desktop/T/Sample.java not exists.
 /home/raijeet/Desktop/nofile.txt not exists.
 /home/raijeet/Desktop/T/otherFile.txt not exists.
