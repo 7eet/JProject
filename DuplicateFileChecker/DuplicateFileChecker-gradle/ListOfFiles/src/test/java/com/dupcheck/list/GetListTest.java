@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.dupcheck.signature.FileSignature;
 public class GetListTest{
 
-/*	private GetList getList = null;
+	private GetList getList = null;
 	
 	@BeforeEach
 	public void initObject(){
@@ -21,7 +21,7 @@ public class GetListTest{
 	
 	@Test
 	public void testForNonExistPath(){
-		assertNull(getList.listOfDuplicateFiles(Paths.get("/dummy")));
+		assertEquals(0,getList.listOfDuplicateFiles(Paths.get("/dummy")).size());
 	}
 	
 	@Test
@@ -33,9 +33,9 @@ public class GetListTest{
 	
 	@Test
 	public void testForValidFile(){
-		assertThrows(NullPointerException.class ,()->{
-				getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.home")+"/Desktop/T/Tp.java"));
-		});
+		assertEquals(0,
+				getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.home")+"/Desktop/T/Tp.java")).size());
+		
 		
 	}
 	
@@ -44,7 +44,5 @@ public class GetListTest{
 		assertEquals(0,getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.home")+"/Desktop/T/empt")).size());
 		
 	}
-	
-*/
 	
 }
