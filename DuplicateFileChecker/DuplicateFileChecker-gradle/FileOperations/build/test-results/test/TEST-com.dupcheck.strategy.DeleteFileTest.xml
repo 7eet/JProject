@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.strategy.DeleteFileTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-10T14:18:25" hostname="raijeet-Vostro-15-3568" time="0.038">
+<testsuite name="com.dupcheck.strategy.DeleteFileTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-09-11T12:55:50" hostname="raijeet-Vostro-15-3568" time="0.022">
   <properties/>
-  <testcase name="testForNull()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.005"/>
-  <testcase name="testForEmptyList()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.002"/>
+  <testcase name="testForNull()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.006"/>
+  <testcase name="testForEmptyList()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.003"/>
   <testcase name="forListSizeEqualsToFour()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.002"/>
-  <testcase name="listWithDirectories()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.023"/>
+  <testcase name="listWithDirectories()" classname="com.dupcheck.strategy.DeleteFileTest" time="0.004"/>
   <system-out><![CDATA[Error Occured when deleting files.
 Error Occured when deleting files.
 ]]></system-out>
