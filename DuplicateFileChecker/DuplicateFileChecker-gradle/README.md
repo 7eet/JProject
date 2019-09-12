@@ -14,4 +14,4 @@
 
 - **run**  `gradle test jacocoTestReport`
 
-**then check**   */build/jacocoHtml/index.html*	
+- **then check**   */build/jacocoHtml/index.html*	
