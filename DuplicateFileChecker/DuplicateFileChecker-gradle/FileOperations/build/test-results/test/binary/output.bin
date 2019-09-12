@@ -1,19 +1,17 @@
 Files doesn't exist.
 Files doesn't exist.
-Files doesn't exist.
 Files doesn't exist.
 Files doesn't exist.
 Files doesn't exist.
 Files doesn't exist.
-0/home/raijeet/Desktop/T/Sample.java not exists.
--/home/raijeet/Desktop/nofile.txt not exists.
-2/home/raijeet/Desktop/T/otherFile.txt not exists.
-*/home/raijeet/Desktop/f/y.txt not exists.
+†/home/raijeet/Desktop/GitRpo/JProject/DuplicateFileChecker/DuplicateFileChecker-gradle/FileOperations/../test-class-dir/dirStrat/forMove/nofile.txt not exists.
+ù/home/raijeet/Desktop/GitRpo/JProject/DuplicateFileChecker/DuplicateFileChecker-gradle/FileOperations/../test-class-dir/dirStrat/forMove/f/y.txt not exists.
 Invalid Path!!
+
+ö/home/raijeet/Desktop/GitRpo/JProject/DuplicateFileChecker/DuplicateFileChecker-gradle/FileOperations/../test-class-dir/dirStrat/forMove/empt not exists.
 
 !Error occured when moving files.
 
-*/home/raijeet/Desktop/dum/dir not exists.
+ô/home/raijeet/Desktop/GitRpo/JProject/DuplicateFileChecker/DuplicateFileChecker-gradle/FileOperations/../test-class-dir/dirStrat/forMove/dum not exists.
 Given path is null.
-#Error Occured when deleting files.
 #Error Occured when deleting files.

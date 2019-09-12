@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.dupcheck.strategy.MoveFileTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-09-11T12:55:50" hostname="raijeet-Vostro-15-3568" time="0.057">
+<testsuite name="com.dupcheck.strategy.MoveFileTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-09-12T07:52:18" hostname="raijeet-Vostro-15-3568" time="0.026">
   <properties/>
-  <testcase name="testWithListOfFiles()" classname="com.dupcheck.strategy.MoveFileTest" time="0.007"/>
+  <testcase name="testWithListOfFiles()" classname="com.dupcheck.strategy.MoveFileTest" time="0.006"/>
   <testcase name="passingFileToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
   <testcase name="testForSizeZero()" classname="com.dupcheck.strategy.MoveFileTest" time="0.002"/>
-  <testcase name="testWithListOfDir()" classname="com.dupcheck.strategy.MoveFileTest" time="0.033"/>
+  <testcase name="testWithListOfDir()" classname="com.dupcheck.strategy.MoveFileTest" time="0.005"/>
   <testcase name="passingNullToConstructor()" classname="com.dupcheck.strategy.MoveFileTest" time="0.003"/>
-  <system-out><![CDATA[/home/raijeet/Desktop/T/Sample.java not exists.
-/home/raijeet/Desktop/nofile.txt not exists.
-/home/raijeet/Desktop/T/otherFile.txt not exists.
-/home/raijeet/Desktop/f/y.txt not exists.
+  <system-out><![CDATA[/home/raijeet/Desktop/GitRpo/JProject/DuplicateFileChecker/DuplicateFileChecker-gradle/FileOperations/../test-class-dir/dirStrat/forMove/nofile.txt not exists.
+/home/raijeet/Desktop/GitRpo/JProject/DuplicateFileChecker/DuplicateFileChecker-gradle/FileOperations/../test-class-dir/dirStrat/forMove/f/y.txt not exists.
 Invalid Path!!
+/home/raijeet/Desktop/GitRpo/JProject/DuplicateFileChecker/DuplicateFileChecker-gradle/FileOperations/../test-class-dir/dirStrat/forMove/empt not exists.
 Error occured when moving files.
-/home/raijeet/Desktop/dum/dir not exists.
+/home/raijeet/Desktop/GitRpo/JProject/DuplicateFileChecker/DuplicateFileChecker-gradle/FileOperations/../test-class-dir/dirStrat/forMove/dum not exists.
 Given path is null.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

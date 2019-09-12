@@ -1,6 +1,0 @@
-FileName	Size (bytes)
-
-/home/raijeet/Desktop/T/Tp.java	 811
-
-
-

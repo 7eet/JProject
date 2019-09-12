@@ -47,7 +47,7 @@ import java.nio.charset.Charset;
 <span class="fc" id="L47">		list.forEach(</span>
 			e -&gt; {
 			
-<span class="fc bfc" id="L50" title="All 4 branches covered.">			if(Files.exists(e.toPath()) &amp;&amp; !Files.isDirectory(e.toPath())){</span>
+<span class="pc bpc" id="L50" title="1 of 4 branches missed.">			if(Files.exists(e.toPath()) &amp;&amp; !Files.isDirectory(e.toPath())){</span>
 				try{				
 <span class="fc" id="L52">					attribute = Files.readAttributes(e.toPath(), PosixFileAttributes.class);</span>
 				
