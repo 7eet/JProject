@@ -1,8 +1,8 @@
 ### How to run application and test coverage report
 
-- **Execute**  `gradle build` 
+- **Execute**   `gradle build` 
 
-- **Then** `./gradlew run --args=specifyDir operation`
+- **Then**  `./gradlew run --args=specifyDir operation`
 
  **operations :**
  1) **d  -> to delete files**
@@ -10,8 +10,8 @@
  3) **f  -> create report in normal text file.**
  4) **csv  -> create report in .csv format.**
 
--**to execute test coverage report**
+- **to execute test coverage report**
 
--**run** `gradle test jacocoTestReport`
+- **run**  `gradle test jacocoTestReport`
 
-**then check**  */build/jacocoHtml/index.html*	
+**then check**   */build/jacocoHtml/index.html*	
