@@ -26,22 +26,22 @@ public class GetListTest{
 	
 	@Test
 	public void testForValidDir(){
-		assertNotNull(getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.home")+"/Desktop/T"))
-		);
+		assertNotNull(getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.dir")+"/../test-class-dir/dirList/nonEmpt/")
+		));
 	}
 	
 	
 	@Test
 	public void testForValidFile(){
 		assertEquals(0,
-				getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.home")+"/Desktop/T/Tp.java")).size());
+				getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.dir")+"/../test-class-dir/dirList/first.txt")).size());
 		
 		
 	}
 	
 	@Test
 	public void testForEmptyDir(){
-		assertEquals(0,getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.home")+"/Desktop/T/empt")).size());
+		assertEquals(0,getList.listOfDuplicateFiles(Paths.get(System.getProperty("user.dir")+"/../test-class-dir/dirList/empt")).size());
 		
 	}
 	

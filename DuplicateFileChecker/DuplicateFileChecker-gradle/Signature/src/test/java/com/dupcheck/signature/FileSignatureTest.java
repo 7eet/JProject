@@ -8,11 +8,11 @@ import java.nio.file.*;
 
 public class FileSignatureTest{
 
-	private static File dummyFile = new File("Dummy.txt");
-	
-	private static File desktopPath = new File(System.getProperty("user.home")+"/Desktop");
-	private static File file =  new File(desktopPath,"/T/Tp.java");
-	private static File dir =  new File(desktopPath,"/T");
+	private static File nonExistFile = new File("Dummy.txt");
+	private static File nonExistDir = new File("non/dir/");	
+	private static File dirPath = new File(System.getProperty("user.dir")+"/../test-class-dir");
+	private static File validFile =  new File(dirPath,"/dirSig/first.txt");
+	private static File validDir =  new File(dirPath,"/dirSig/nonEmpt");
 
 	@Test 
 	public void testForNullArgument(){
@@ -21,16 +21,21 @@ public class FileSignatureTest{
 	
 	@Test
 	public void testForNonExistFile(){
-		assertNull(new FileSignature(dummyFile).getSignature());
+		assertNull(new FileSignature(nonExistFile).getSignature());
 	}
 
 	@Test
 	public void testForExistFile(){
-		assertNotNull(new FileSignature(file).getSignature());	
+		assertNotNull(new FileSignature(validFile).getSignature());	
 	}
 	
 	@Test
 	public void testForValidDirectory(){
-		assertNull(new FileSignature(dir).getSignature());	
+		assertNull(new FileSignature(validDir).getSignature());	
+	}
+	
+	@Test
+	public void testForNonExistDir(){
+		assertEquals(null,new FileSignature(nonExistDir).getSignature());
 	}
 }

@@ -1,17 +1,14 @@
 package com.dupcheck.strategy;
-//import org.junit.Before;
-//import org.junit.Test;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-import java.io.*;
-
-import java.nio.file.*;
+import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MoveFileTest{
 	
-	private static File desktop  = new File(System.getProperty("user.home")+"/Desktop");
+	private static File dir  = new File(System.getProperty("user.dir")+"/../test-class-dir/dirStrat/forMove");
 
 	private static List<File> listWithZeroSize = null;
 	private static List<File> listWithFourFiles = null;
@@ -20,7 +17,7 @@ public class MoveFileTest{
 
 	@BeforeEach
 	public void initConstructorWithValidPath(){
-			mvFile = new MoveFileStrategy(Paths.get(desktop+"/T"));
+			mvFile = new MoveFileStrategy(Paths.get(dir+"/move"));
 	}
 	
 	@BeforeAll
@@ -32,21 +29,21 @@ public class MoveFileTest{
 	
 	@BeforeAll
 	public static void addElementsToDirList(){
-		listWithThreeDir.add(new File(desktop,"/T/empt"));                      // empty dir
-		listWithThreeDir.add(new File(desktop,"/T"));		// non empty dir
-		listWithThreeDir.add(new File(desktop,"/dum/dir"));			// non exist dir
+		listWithThreeDir.add(new File(dir,"/empt"));                      // empty dir
+		listWithThreeDir.add(new File(dir,"/nonEmpt"));		// non empty dir
+		listWithThreeDir.add(new File(dir,"/dum"));			// non exist dir
 	}
 
 	@BeforeAll
 	public static void addElementsToFileList(){
 		
-		// 2 and 4 files are nonexist file.
+		// #2 and #4 file are nonexist file.
 		// rest two are exist.
 		
-		listWithFourFiles.add(new File(desktop,"/T/Sample.java"));
-		listWithFourFiles.add(new File(desktop,"nofile.txt"));
-		listWithFourFiles.add(new File(desktop,"/T/otherFile.txt"));
-		listWithFourFiles.add(new File(desktop,"/f/y.txt"));
+		listWithFourFiles.add(new File(dir,"/first.txt"));
+		listWithFourFiles.add(new File(dir,"nofile.txt"));
+		listWithFourFiles.add(new File(dir,"/second.txt"));
+		listWithFourFiles.add(new File(dir,"/f/y.txt"));
 	}
 	
 	@Test
@@ -57,7 +54,7 @@ public class MoveFileTest{
 	
 	@Test
 	public void passingFileToConstructor(){
-		MoveFileStrategy mv = new MoveFileStrategy(Paths.get(desktop+"/T/otherFile"));
+		MoveFileStrategy mv = new MoveFileStrategy(Paths.get(dir+"/firstc.txt"));
 		assertDoesNotThrow( ()->{mv.execute(null);});
 	}
 	
@@ -76,8 +73,6 @@ public class MoveFileTest{
 	public void testWithListOfFiles(){
 		assertDoesNotThrow(()->{mvFile.execute(listWithFourFiles);});
 	}
-	
 
-	
 }
 
