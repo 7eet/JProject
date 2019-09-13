@@ -1,3 +1,7 @@
+/**
+* 	@author 7eet
+*	@Version 1.0
+*/
 // this is file create a normal text file , which contains list of duplicate files.
 package com.dupcheck.strategy;
 import java.util.*;

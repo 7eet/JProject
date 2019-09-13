@@ -1,3 +1,7 @@
+/**
+* 	@author 7eet
+*	@Version 1.0
+*/
 // this file create a new file with .csv extension and add duplicate files.
 package com.dupcheck.strategy;
 import java.util.List;

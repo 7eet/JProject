@@ -1,5 +1,7 @@
-// main application file
-
+/**
+* 	@author 7eet
+*	@Version 1.0
+*/
 
 package com.dupcheck;
 import java.io.BufferedReader;
