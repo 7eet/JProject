@@ -27,7 +27,7 @@ public class Main{
 	
 		long startTime = System.currentTimeMillis();
 
-		if(arg[0] != null){
+		if(arg.length > 0){
 
 			Path path = Paths.get(arg[0]);
 			if(path.toFile().exists()){
@@ -78,10 +78,10 @@ public class Main{
 					default:
 						System.out.format("To perform operations on duplicate files you have to give one more argument after path." +
 								"%nOperations are as follows:" +
-								"%n1. -d\t-> to delete files" +
-								"%n2. -m\t-> to move files" +
-								"%n3. -csv\t-> to create report in \".csv\" form." +
-								"%n4. -f\t-> to create report in normal text file.%n");
+								"%n1. d\t-> to delete files" +
+								"%n2. m\t-> to move files" +
+								"%n3. csv\t-> to create report in \".csv\" form." +
+								"%n4. f\t-> to create report in normal text file.%n");
 						break;
 				}
 			}else{
