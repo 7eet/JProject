@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MoveFileTest{
-	
+	/*
 	private static File dir  = new File(System.getProperty("user.dir")+"/../test-class-dir/dirStrat/forMove");
 
 	private static List<File> listWithZeroSize = null;
@@ -73,6 +73,6 @@ public class MoveFileTest{
 	public void testWithListOfFiles(){
 		assertDoesNotThrow(()->{mvFile.execute(listWithFourFiles);});
 	}
-
+*/
 }
 

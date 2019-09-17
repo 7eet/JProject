@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeleteFileTest{
-	
+/*	
 	private FeatureStrategy del = null;
 	private List<File> list =  null;
 	private static File dir  = new File(System.getProperty("user.dir")+"/../test-class-dir/dirStrat");
@@ -53,6 +53,6 @@ public class DeleteFileTest{
 			list.add(new File(dir,"/ij.jpg"));	//// non exist file
 			del.execute(list);
 		});	
-	}
+	} */
 }
 

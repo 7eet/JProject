@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVFileTest{
-	private CSVFileStrategy reportFile = null;
+/*	private CSVFileStrategy reportFile = null;
 	private static List<File> sizeZero = null;
 	private static List<File> listOfFiles = null;
 	private static List<File> listOfDir = null;
@@ -62,5 +62,5 @@ public class CSVFileTest{
 		assertDoesNotThrow(()->{
 			reportFile.execute(listOfDir);
 		});
-	}
+	} */
 }

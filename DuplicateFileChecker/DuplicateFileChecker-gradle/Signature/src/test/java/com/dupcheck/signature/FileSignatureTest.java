@@ -7,7 +7,7 @@ import java.nio.file.*;
 
 
 public class FileSignatureTest{
-
+/*
 	private static File nonExistFile = new File("Dummy.txt");
 	private static File nonExistDir = new File("non/dir/");	
 	private static File dirPath = new File(System.getProperty("user.dir")+"/../test-class-dir");
@@ -37,5 +37,5 @@ public class FileSignatureTest{
 	@Test
 	public void testForNonExistDir(){
 		assertEquals(null,new FileSignature(nonExistDir).getSignature());
-	}
+	}  */
 }

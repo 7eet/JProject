@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReportFileTest{
-	private ReportFileStrategy reportFile = null;
+/*	private ReportFileStrategy reportFile = null;
 	private static List<File> sizeZero = null;
 	private static List<File> listOfFiles = null;
 	private static List<File> listOfDir = null;
@@ -63,5 +63,5 @@ public class ReportFileTest{
 		assertDoesNotThrow( ()->{
 			reportFile.execute(listOfDir);
 		});
-	}
+	} */
 }
