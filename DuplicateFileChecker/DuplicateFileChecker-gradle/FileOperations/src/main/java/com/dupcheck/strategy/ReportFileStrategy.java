@@ -6,26 +6,28 @@
 package com.dupcheck.strategy;
 import java.util.*;
 import java.io.*;
+import java.time.*;
 import java.nio.file.*;
 import java.nio.file.attribute.*;
 import java.nio.charset.Charset;
 public class ReportFileStrategy implements FeatureStrategy {
 	
-	private BufferedWriter writer = null;	
+	private BufferedWriter writer = null;
+	
+	private String filePath =System.getProperty("user.dir")+"/../DuplicateFiles.txt";	
 	
 	@Override public void execute(List<File> list){
 	
 			try{
 		
-				if(Files.exists(Paths.get("DuplicateFiles.txt"))){
-					writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File("DuplicateFiles.txt"),true),Charset.forName("UTF-8")));
+				if(Files.exists(Paths.get(filePath))){
+					writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(filePath),true),Charset.forName("UTF-8")));
 					createReport(writer,list);
+					writer.write("\n");
 				}else{
-						writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File("DuplicateFiles.txt")),Charset.forName("UTF-8")));
-						writer.write("FileName\tSize (bytes)\n");
-						writer.write("\n");	
-						writer.flush();
+						writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(filePath)),Charset.forName("UTF-8")));
 						createReport(writer,list);
+						writer.write("\n");
 				}
 			}catch(IOException exception){
 					//excecption.printStackTrace();
@@ -41,12 +43,14 @@ public class ReportFileStrategy implements FeatureStrategy {
 	
 	
 	private void createReport(BufferedWriter bufferedWriter, List<File> list) throws IOException{
+	
+	bufferedWriter.write(String.format("Date & Time: %s %s %n",LocalDate.now().toString(),LocalTime.now().toString() ));
 			list.forEach(
 					e -> {
 							if(Files.exists(e.toPath()) && !Files.isDirectory(e.toPath())){
 									try{			
-										bufferedWriter.write(e.toPath()+"\t "+e.length());
-										bufferedWriter.newLine();
+										bufferedWriter.write(String.format("%s %n", e.toPath().toString()));
+										//bufferedWriter.newLine();
 										bufferedWriter.flush(); 	
 									}catch(IOException ioex){
 										System.out.println("Error occured while writing file.");
