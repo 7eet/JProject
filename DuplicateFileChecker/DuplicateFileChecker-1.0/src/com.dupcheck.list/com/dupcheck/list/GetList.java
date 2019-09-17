@@ -1,4 +1,7 @@
-
+/**
+* 	@author 7eet
+*	@Version 1.0
+*/
 package com.dupcheck.list;
 import java.util.*;
 import java.io.*;
@@ -6,7 +9,9 @@ import java.nio.file.*;
 import com.dupcheck.signature.FileSignature;
 public class GetList{
 
-		// this inner class store file's signature and file path
+	/*
+	*	this inner class stores signature and path of file.
+	*/
 	private class FileInfo{
 		String messageDigest = null;
 		File file = null;
@@ -37,17 +42,20 @@ public class GetList{
 	
 	// set contains fileInfo object.
 	private HashSet<FileInfo> setOfObject = new HashSet<>();
-	
-	private Set<String> setOfSignature = new HashSet<>();
-	
+		
 	//field listOfDuplicates is used to store duplicate files. 	
 	private List<File> duplicateFiles = new ArrayList<>();
 	
 	private FileSignature signature = null;
 	
+	// this field counts the number of files traversed.
 	private static long countFiles = 0;
 	
 	
+	/**
+	*	@param p is the path in which it checks for duplicates.
+	*	@returns list of duplicate files.
+	*/
 	public List<File> listOfDuplicateFiles(Path p){
 	
 		if(p != null){

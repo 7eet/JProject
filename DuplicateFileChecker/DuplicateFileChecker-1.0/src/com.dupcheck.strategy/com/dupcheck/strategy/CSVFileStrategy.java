@@ -1,3 +1,7 @@
+/**
+* 	@author 7eet
+*	@Version 1.0
+*/
 // this file create a new file with .csv extension and add duplicate files.
 package com.dupcheck.strategy;
 import java.util.List;
@@ -11,17 +15,19 @@ public class CSVFileStrategy implements FeatureStrategy {
 	private BufferedWriter writer = null;
 	
 	private PosixFileAttributes attribute = null;
+	
+	private String filePath = System.getProperty("user.dir")+"/../DuplicateFiles.csv";
 
 	@Override public void execute(List<File> list){			
 			try{	
 			
-				if(Files.exists(Paths.get("DuplicateFiles.csv"))){
+				if(Files.exists(Paths.get(filePath))){
 				
-					writer = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File("DuplicateFiles.csv"),true),Charset.forName("UTF-8"))); 
+					writer = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File(filePath),true),Charset.forName("UTF-8"))); 
 					createReport(writer,list);
 					writer.write("\n");
 				}else{
-					writer = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File("DuplicateFiles.csv")),Charset.forName("UTF-8")));
+					writer = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File(filePath)),Charset.forName("UTF-8")));
 					writer.write("ReportDay,ReportTime,Path,Owner,Group,Size (bytes)\n");
 					writer.flush();
 					createReport(writer,list);

@@ -1,5 +1,8 @@
+/**
+* 	@author 7eet
+*	@Version 1.0
+*/
 // this file is used for deleting duplicate files.
-
 package com.dupcheck.strategy;
 import java.util.List;
 import java.io.*;

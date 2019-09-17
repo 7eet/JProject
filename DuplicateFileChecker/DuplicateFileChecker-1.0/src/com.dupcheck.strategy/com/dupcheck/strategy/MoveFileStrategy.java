@@ -1,3 +1,7 @@
+/**
+* 	@author 7eet
+*	@Version 1.0
+*/
 // this file is used for moving duplicate files to new directory.
 package com.dupcheck.strategy;
 import java.util.Scanner;
@@ -11,14 +15,12 @@ public class MoveFileStrategy implements FeatureStrategy{
 	public MoveFileStrategy(Path path){
 		movePath = path;
 	}
-	
 		
 	@Override public void execute(List<File> list){
 	
 	if(movePath != null){
 	
 		if(Files.exists(movePath) && Files.isDirectory(movePath)){
-
 			list.stream()
 				.forEach( e -> {
 				if(Files.exists(e.toPath())){
