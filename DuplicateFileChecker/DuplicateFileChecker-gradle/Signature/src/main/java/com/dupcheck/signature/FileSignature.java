@@ -1,45 +1,42 @@
 /**
-* 	@author 7eet
-*	@Version 1.0
+*@author 7eet
+*@Version 1.0
 */
 // this calculate the signatue of file and returns it.
 package com.dupcheck.signature;
-import java.security.*;
-import java.io.*;
-import java.nio.file.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
-public class FileSignature{
-	
+public class FileSignature {
 	private MessageDigest md = null;
-	
-	private String result = null; 
-	
+	private String result = null;
 	/**
-	*	@param file is the file on which the signature will be calculated.
+	*	@param file is the file on which
+	 * 	the signature will be calculated.
 	*/
-	public FileSignature(File file){	
-		
-		if(file != null){
-			try{
+	public FileSignature(File file) {
+		if (file != null) {
+			try {
 				md = MessageDigest.getInstance("SHA-256");
 				byte[] bytes = Files.readAllBytes(file.toPath());
-				result = new  String(md.digest(bytes),"UTF-8"); 
-			}catch(NoSuchAlgorithmException noAlgo){
+				result = new  String(md.digest(bytes), "UTF-8");
+			} catch (NoSuchAlgorithmException noAlgo) {
 					noAlgo.printStackTrace();
-			}catch(IOException io){
+			} catch (IOException io) {
 				System.out.println("Error occured in Signature.");
 				//io.printStackTrace();
 			}
-		}else{
+		} else {
 			System.out.println("Null Argument is passed.");
-		}	
-		
+		}
 	}
-	
 	/**
-	*	@returns the string of file's signature
+	*	@return the string of file's signature
 	*/
-	public String getSignature(){
+	public String getSignature() {
 		return result;
-	}	
+	}
 }
