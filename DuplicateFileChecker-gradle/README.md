@@ -15,7 +15,7 @@
     3) *f  -> create report in normal text file.*
     4) *csv  -> create report in .csv format.*
 
-**to execute test coverage report**
+**For test coverage report**
 
 **run** 
 `gradle test jacocoTestReport`
