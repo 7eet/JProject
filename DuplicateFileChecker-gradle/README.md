@@ -1,6 +1,5 @@
 #### How to run application and test coverage report
 
-
  **Execute**
   `gradle build` 
 
