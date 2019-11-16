@@ -2,14 +2,16 @@
 - **How to run this application in your own System**
 
 ### What is DuplicateFileChecker
-**It checks duplicate files ( text files, images, etc.) in a specified directory. It can delete and move those duplicate files. It generates report in normal text file and comma-separated value (.csv) file.**
+  - **It checks duplicate files ( text files, images, etc.) in a specified directory.**
+  - **It can delete and move those duplicate files.**
+  - **It generates report in normal text file and comma-separated value (.csv) file.**
 
 ### How to run application and test coverage report
 
- **Execute**
+ - **Execute**
   `gradle build` 
 
- **Then**
+ - **Then**
  `./gradlew run --args=specifyDir operation`
  
 
@@ -20,9 +22,9 @@
     3) *f  -> create report in normal text file.*
     4) *csv  -> create report in .csv format.*
 
-**For test coverage report**
+ - **For test coverage report**
 
-**run** 
+ - **run** 
 `gradle test jacocoTestReport`
 
 **then check**  */build/jacocoHtml/index.html*  **file.**	
