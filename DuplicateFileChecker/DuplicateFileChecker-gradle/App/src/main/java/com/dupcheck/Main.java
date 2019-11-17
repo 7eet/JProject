@@ -1,6 +1,6 @@
 /**
-*@author 7eet
-*@Version 1.0
+* 	@author 7eet
+*	@Version 1.0
 */
 
 package com.dupcheck;
@@ -11,44 +11,43 @@ import java.util.List;
 import java.util.ArrayList;
 import com.dupcheck.list.GetList;
 import com.dupcheck.strategy.FeatureStrategy;
-import com.dupcheck.strategy.CSVFileStrategy;
 import com.dupcheck.strategy.DeleteFileStrategy;
 import com.dupcheck.strategy.MoveFileStrategy;
 import com.dupcheck.strategy.ReportFileStrategy;
+import com.dupcheck.strategy.CSVFileStrategy;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.File;
 import java.nio.charset.Charset;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.*;
 
-public class Main {
+public class Main{
 
 	private static GetList  getList = new GetList();
 	private static List<File>  duplicateFiles = new ArrayList<>();
 	private static FeatureStrategy strategy = null;
-	private static final Logger LOGGER = LogManager.getLogger(Main.class);
-	public static void main(String[] arg) {
+	private static final Logger logger = LogManager.getLogger(Main.class);
+	public static void main(String[] arg){
 		
-		LOGGER.debug("Started");
+		logger.debug("Started");
 	
 		long startTime = System.currentTimeMillis();
 
-		if (arg.length > 0) {
+		if(arg.length > 0){
 
 			Path path = Paths.get(arg[0]);
-			if (path.toFile().exists()) {
+			if(path.toFile().exists()){
 				duplicateFiles = getList.listOfDuplicateFiles(path);
-			} else {
+			}else{
 				System.out.format("Please specify correct directory.%n");
-				LOGGER.info("Does not specified correct directory.%n");
+				logger.info("Does not specified correct directory.%n");
 			}
 
-			if (arg.length > 1) {
+			if(arg.length >1 ){
 				String secondArgument = arg[1];
 
 
-				switch (secondArgument) {
+				switch(secondArgument){
 
 					case "d" :
 
@@ -58,13 +57,13 @@ public class Main {
 
 					case "m" :
 						Path movePath = null;
-						try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")))) {
+						try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in,Charset.forName("UTF-8")))){
 							System.out.println("Specify path where to move files: ");
 							String inputPath = reader.readLine();
 							movePath = Paths.get(inputPath);
-						} catch (IOException io) {
+						}catch(IOException io){
 							System.out.println("Error in reading input.");
-							LOGGER.error("Error in reading input\n" + io);
+							logger.error("Error in reading input\n"+io);
 							//io.printStackTrace();
 						}
 						strategy = new MoveFileStrategy(movePath);
@@ -83,35 +82,38 @@ public class Main {
 						break;
 
 					default:
-						System.out.format("To perform operations on duplicate files you have to give one more argument after path."
-								+ "%nOperations are as follows:"
-								+ "%n1. d\t-> to delete files"
-								+ "%n2. m\t-> to move files"
-								+ "%n3. csv\t-> to create report in \".csv\" form."
-								+ "%n4. f\t-> to create report in normal text file.%n");
+						System.out.format("To perform operations on duplicate files you have to give one more argument after path." +
+								"%nOperations are as follows:" +
+								"%n1. d\t-> to delete files" +
+								"%n2. m\t-> to move files" +
+								"%n3. csv\t-> to create report in \".csv\" form." +
+								"%n4. f\t-> to create report in normal text file.%n");
 						break;
 				}
-			} else {
+			}else{
 
-				if (duplicateFiles.size() == 0) {
+				if(duplicateFiles.size() == 0){
 					System.out.println("No Duplicate Files.");
-					LOGGER.info("No Duplicate Files.");
-				} else {
+					logger.info("No Duplicate Files.");
+				}else{
 					System.out.format("Report for Duplicate Files%n");
-					LOGGER.info("Reported Duplicate Files");
+					logger.info("Reported Duplicate Files");
 					duplicateFiles.forEach(System.out::println);
 				}
 			}
 
-		} else {
-			System.out.format("Please run this program with two arguments." + "%nOne for path and another for operation.%n");
+		}else{
+			System.out.format("Please run this program with two arguments." +
+					"%nOne for path and another for operation.%n");
 		}
 		
 		long endTime = System.currentTimeMillis();
 		//System.out.println("Time Taken by application is: "+(endTime-startTime)+" ms for files "+getList.count());
 		
-		LOGGER.info("Time Taken by application is: " + (endTime - startTime) + " ms");
-		LOGGER.debug("Stopped");
+		logger.info("Time Taken by application is: "+(endTime-startTime)+" ms");
+		logger.debug("Stoped");
 	}
+
+	
 }
 
