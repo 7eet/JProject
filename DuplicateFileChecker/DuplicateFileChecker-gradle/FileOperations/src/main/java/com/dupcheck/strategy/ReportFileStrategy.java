@@ -4,22 +4,20 @@
 */
 // this is file create a normal text file , which contains list of duplicate files.
 package com.dupcheck.strategy;
-import java.util.List;
-import java.io.File;
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.IOException;
-import java.time.LocalTime;
-import java.time.LocalDate;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.LocalDateTime;
+import java.io.*;
+import java.time.*;
+import java.nio.file.*;
+import java.nio.file.attribute.*;
 import java.nio.charset.Charset;
 public class ReportFileStrategy implements FeatureStrategy {
 	
 	private BufferedWriter writer = null;
 	
-	private String filePath = System.getProperty("user.dir")+"/../DuplicateFiles.txt";
+	private String filePath =System.getProperty("user.dir")+"/../DuplicateFiles.txt";	
 	
 	@Override public void execute(List<File> list){
 	
@@ -34,7 +32,6 @@ public class ReportFileStrategy implements FeatureStrategy {
 						createReport(writer,list);
 						writer.write("\n");
 				}
-				System.out.println("Created Report");
 			}catch(IOException exception){
 					//excecption.printStackTrace();
 					System.out.println("Error occured in creating file.");
@@ -48,21 +45,25 @@ public class ReportFileStrategy implements FeatureStrategy {
 	}
 	
 	
-	private void createReport(BufferedWriter bufferedWriter, List<File> list) throws IOException {
+	private void createReport(BufferedWriter bufferedWriter, List<File> list) throws IOException{
 	
-	bufferedWriter.write(String.format("Date & Time: %s %s %n", LocalDate.now().toString(), LocalTime.now().toString()));
+	LocalDateTime dateTime = LocalDateTime.now();
+		DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+		String[] stringDateTime = dateTime.format(format).split(",");	
+	
+	bufferedWriter.write(String.format("Date & Time:  %s  %s %n",stringDateTime[0].trim(),stringDateTime[1].trim() ));
 			list.forEach(
 					e -> {
-							if (Files.exists(e.toPath()) && !Files.isDirectory(e.toPath())) {
-									try {
+							if(Files.exists(e.toPath()) && !Files.isDirectory(e.toPath())){
+									try{			
 										bufferedWriter.write(String.format("%s %n", e.toPath().toString()));
 										//bufferedWriter.newLine();
 										bufferedWriter.flush(); 	
-									} catch (IOException ioex) {
+									}catch(IOException ioex){
 										System.out.println("Error occured while writing file.");
 										//ioex.printStackTrace();
 									}
-								} else {
+								}else{
 									System.out.println("Files doesn't exist.");
 								}
 							}	
